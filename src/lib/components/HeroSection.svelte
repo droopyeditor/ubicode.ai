@@ -16,13 +16,21 @@
 		'Authenticating with key... OK'
 	];
 
+	const EN = '\u2002'; // en space — matches box-drawing char width on iOS
+
 	const asciiArt = [
-		'██╗   ██╗██████╗ ██╗ ██████╗ ██████╗ ██████╗ ███████╗',
-		'██║   ██║██╔══██╗██║██╔════╝██╔═══██╗██╔══██╗██╔════╝',
-		'██║   ██║██████╔╝██║██║     ██║   ██║██║  ██║█████╗  ',
-		'██║   ██║██╔══██╗██║██║     ██║   ██║██║  ██║██╔══╝  ',
-		'╚██████╔╝██████╔╝██║╚██████╗╚██████╔╝██████╔╝███████╗',
-		' ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝'
+		`██╗${EN}${EN}${EN}██╗██████╗${EN}██╗${EN}██████╗${EN}██████╗${EN}██████╗${EN}███████╗`,
+		`██║${EN}${EN}${EN}██║██╔══██╗██║██╔════╝██╔═══██╗██╔══██╗██╔════╝`,
+		`██║${EN}${EN}${EN}██║██████╔╝██║██║${EN}${EN}${EN}${EN}${EN}██║${EN}${EN}${EN}██║██║${EN}${EN}██║█████╗${EN}${EN}`,
+		`██║${EN}${EN}${EN}██║██╔══██╗██║██║${EN}${EN}${EN}${EN}${EN}██║${EN}${EN}${EN}██║██║${EN}${EN}██║██╔══╝${EN}${EN}`,
+		`╚██████╔╝██████╔╝██║╚██████╗╚██████╔╝██████╔╝███████╗`,
+		`${EN}╚═════╝${EN}╚═════╝${EN}╚═╝${EN}╚═════╝${EN}╚═════╝${EN}╚═════╝${EN}╚══════╝`
+	];
+
+	const asciiArtSmall = [
+		`╦${EN}╦╔╗${EN}╦╔═╗╔═╗╔╦╗╔═╗`,
+		`║${EN}║╠╩╗║║${EN}${EN}║${EN}║${EN}║║║╣${EN}`,
+		`╚═╝╚═╝╩╚═╝╚═╝═╩╝╚═╝`
 	];
 
 
@@ -66,7 +74,8 @@
 			{/each}
 			<pre class="ascii-large text-term-cyan mt-2 text-xs sm:text-sm leading-tight">{#each asciiArt as line}{line}
 {/each}</pre>
-			<p class="ascii-small text-term-cyan mt-2 text-2xl font-bold tracking-[0.2em]">UBICODE</p>
+			<pre class="ascii-small text-term-cyan mt-2 text-xs leading-tight">{#each asciiArtSmall as line}{line}
+{/each}</pre>
 			<p class="mt-2 sm:mt-3 text-base sm:text-xl text-term-mauve font-medium">
 				The SSH client your iPhone deserves.
 			</p>
