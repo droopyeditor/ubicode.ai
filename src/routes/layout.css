@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--color-term-bg: #1e1e2e;
+	--color-term-surface: #313244;
+	--color-term-overlay: #45475a;
+	--color-term-border: #585b70;
+	--color-term-text: #cdd6f4;
+	--color-term-subtext: #a6adc8;
+	--color-term-green: #a6e3a1;
+	--color-term-cyan: #89dceb;
+	--color-term-yellow: #f9e2af;
+	--color-term-red: #f38ba8;
+	--color-term-mauve: #cba6f7;
+	--color-term-blue: #89b4fa;
+	--color-term-peach: #fab387;
+	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+body {
+	font-family: var(--font-mono);
+	background-color: var(--color-term-bg);
+	color: var(--color-term-text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+	background-color: var(--color-term-overlay);
+	color: var(--color-term-text);
+}
