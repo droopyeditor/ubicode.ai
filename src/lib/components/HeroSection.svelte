@@ -25,11 +25,6 @@
 		' ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝'
 	];
 
-	const asciiArtSmall = [
-		'╦ ╦╔╗ ╦╔═╗╔═╗╔╦╗╔═╗',
-		'║ ║╠╩╗║║  ║ ║ ║║║╣ ',
-		'╚═╝╚═╝╩╚═╝╚═╝═╩╝╚═╝'
-	];
 
 	$effect(() => {
 		if (skipped) {
@@ -71,8 +66,7 @@
 			{/each}
 			<pre class="ascii-large text-term-cyan mt-2 text-xs sm:text-sm leading-tight">{#each asciiArt as line}{line}
 {/each}</pre>
-			<pre class="ascii-small text-term-cyan mt-2 text-xs leading-tight">{#each asciiArtSmall as line}{line}
-{/each}</pre>
+			<p class="ascii-small text-term-cyan mt-2 text-2xl font-bold tracking-[0.2em]">UBICODE</p>
 			<p class="mt-2 sm:mt-3 text-base sm:text-xl text-term-mauve font-medium">
 				The SSH client your iPhone deserves.
 			</p>
