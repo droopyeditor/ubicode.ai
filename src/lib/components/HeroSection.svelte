@@ -25,12 +25,6 @@
 		' ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝'
 	];
 
-	const asciiArtSmall = [
-		'╦ ╦╔╗ ╦╔═╗╔═╗╔╦╗╔═╗',
-		'║ ║╠╩╗║║  ║ ║ ║║║╣ ',
-		'╚═╝╚═╝╩╚═╝╚═╝═╩╝╚═╝'
-	];
-
 
 	$effect(() => {
 		if (skipped) {
@@ -70,9 +64,7 @@
 			{#each connectionLines as line}
 				<p class="text-term-subtext">{line}</p>
 			{/each}
-			<pre class="ascii-large text-term-cyan mt-2 text-xs sm:text-sm leading-tight">{#each asciiArt as line}{line}
-{/each}</pre>
-			<pre class="ascii-small text-term-cyan mt-2 text-xs leading-tight">{#each asciiArtSmall as line}{line}
+			<pre class="text-term-cyan mt-2 text-[0.5rem] sm:text-sm leading-tight">{#each asciiArt as line}{line}
 {/each}</pre>
 			<p class="mt-2 sm:mt-3 text-base sm:text-xl text-term-mauve font-medium">
 				The SSH client your iPhone deserves.
@@ -81,18 +73,3 @@
 	{/if}
 </section>
 
-<style>
-	.ascii-large {
-		display: none;
-	}
-
-	@media (min-width: 640px) {
-		.ascii-large {
-			display: block;
-		}
-
-		.ascii-small {
-			display: none;
-		}
-	}
-</style>
