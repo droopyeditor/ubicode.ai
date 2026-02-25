@@ -60,13 +60,13 @@
 
 	{#if commandDone}
 		<div in:fade={{ duration: 200 }}>
-			<div class="mt-3 space-y-2">
+			<div class="mt-2 sm:mt-3 space-y-1.5 sm:space-y-2">
 				{#each features as feature, i (feature.name)}
-					<div class="flex items-start gap-3">
+					<div class="flex items-start gap-2 sm:gap-3">
 						<span class="{colors[i]} shrink-0">◆</span>
 						<div>
 							<span class="{colors[i]} font-medium">{feature.name}</span>
-							<span class="text-term-subtext ml-2">— {feature.desc}</span>
+							<span class="text-term-subtext ml-1 sm:ml-2">— {feature.desc}</span>
 						</div>
 					</div>
 				{/each}

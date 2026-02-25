@@ -14,7 +14,7 @@
 		<span class="flex-1 text-center text-xs text-term-subtext">{title}</span>
 		<div class="w-[54px]"></div>
 	</div>
-	<div class="flex-1 overflow-y-auto p-4 sm:p-6 text-sm leading-relaxed">
+	<div class="flex-1 overflow-y-auto p-3 sm:p-6 text-xs sm:text-sm leading-relaxed">
 		{@render children()}
 	</div>
 </div>

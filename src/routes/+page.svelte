@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { tick } from 'svelte';
 	import TerminalWindow from '$lib/components/TerminalWindow.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import FeaturesSection from '$lib/components/FeaturesSection.svelte';
@@ -9,7 +8,6 @@
 
 	let step = $state(0);
 	let skipped = $state(false);
-	let anchor: HTMLDivElement;
 
 	function skipAll() {
 		if (skipped) return;
@@ -30,19 +28,12 @@
 			window.removeEventListener('touchmove', handler);
 		};
 	});
-
-	$effect(() => {
-		step;
-		tick().then(() => {
-			anchor?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-		});
-	});
 </script>
 
 <div class="px-2 py-2 sm:px-4 sm:py-3 h-dvh">
 	<div class="max-w-4xl mx-auto h-full">
 		<TerminalWindow title="ubicode — ssh session">
-			<div class="space-y-6">
+			<div class="space-y-4 sm:space-y-6">
 				<HeroSection {skipped} onComplete={() => step = 1} />
 
 				{#if step >= 1}
@@ -60,8 +51,6 @@
 				{#if step >= 4}
 					<Footer />
 				{/if}
-
-				<div bind:this={anchor}></div>
 			</div>
 		</TerminalWindow>
 	</div>

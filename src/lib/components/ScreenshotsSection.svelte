@@ -57,7 +57,7 @@
 	</p>
 
 	{#if commandDone}
-		<div in:fade={{ duration: 200 }} class="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+		<div in:fade={{ duration: 200 }} class="mt-2 sm:mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-6">
 			{#each screenshots as screenshot (screenshot.alt)}
 				<div class="rounded-lg border border-term-border bg-term-bg overflow-hidden">
 					<img

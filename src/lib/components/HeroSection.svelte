@@ -73,7 +73,7 @@
 {/each}</pre>
 			<pre class="text-term-cyan mt-2 text-xs leading-tight sm:hidden">{#each asciiArtSmall as line}{line}
 {/each}</pre>
-			<p class="mt-3 text-lg sm:text-xl text-term-mauve font-medium">
+			<p class="mt-2 sm:mt-3 text-base sm:text-xl text-term-mauve font-medium">
 				The SSH client your iPhone deserves.
 			</p>
 		</div>
