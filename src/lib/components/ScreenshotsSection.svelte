@@ -3,16 +3,16 @@
 	import BlinkingCursor from './BlinkingCursor.svelte';
 	import { typeText, delay } from '$lib/utils/typing.svelte.js';
 
-	import connectScreen from '$lib/assets/img/connect_screen.png';
-	import terminal from '$lib/assets/img/terminal.png';
-	import sixelSupport from '$lib/assets/img/sixel_support.png';
-	import sftpSupport from '$lib/assets/img/sftp_support.png';
-	import textEditor from '$lib/assets/img/text_editor.png';
-	import sshTunneling from '$lib/assets/img/ssh_tunneling.png';
-	import commandSnippet from '$lib/assets/img/command_snippet.png';
-	import customizableKeyPanel from '$lib/assets/img/customizable_key_panel.png';
-	import sshKeyGen from '$lib/assets/img/ssh_key_gen.png';
-	import sshKeyImport from '$lib/assets/img/ssh_key_import.png';
+	import connectScreen from '$lib/assets/img/connect_screen.jpg';
+	import terminal from '$lib/assets/img/terminal.jpg';
+	import sixelSupport from '$lib/assets/img/sixel_support.jpg';
+	import sftpSupport from '$lib/assets/img/sftp_support.jpg';
+	import textEditor from '$lib/assets/img/text_editor.jpg';
+	import sshTunneling from '$lib/assets/img/ssh_tunneling.jpg';
+	import commandSnippet from '$lib/assets/img/command_snippet.jpg';
+	import customizableKeyPanel from '$lib/assets/img/customizable_key_panel.jpg';
+	import sshKeyGen from '$lib/assets/img/ssh_key_gen.jpg';
+	import sshKeyImport from '$lib/assets/img/ssh_key_import.jpg';
 
 	let { onComplete, skipped = false }: { onComplete?: () => void; skipped?: boolean } = $props();
 
