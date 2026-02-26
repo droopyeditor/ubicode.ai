@@ -53,7 +53,7 @@
 			</p>
 
 			<div class="mt-3 space-y-1">
-				<p><span class="text-term-green">→</span> <span class="text-term-text">SSH / Mosh with key & password auth</span></p>
+				<p><span class="text-term-green">→</span> <span class="text-term-text">SSH with key & password auth</span></p>
 				<p><span class="text-term-green">→</span> <span class="text-term-text">Built-in editor — edit remote files directly</span></p>
 				<p><span class="text-term-green">→</span> <span class="text-term-text">File browser & transfer over SSH</span></p>
 				<p><span class="text-term-green">→</span> <span class="text-term-text">Port forwarding & SSH tunneling</span></p>
