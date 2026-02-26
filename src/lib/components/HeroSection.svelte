@@ -25,9 +25,13 @@
 </script>
 
 <section in:fade={{ duration: 300 }}>
-	<pre class="text-term-cyan text-[0.5rem] sm:text-sm leading-tight">{#each asciiArt as line}{line}
+	<div class="flex items-end gap-3 sm:gap-5">
+		<pre class="text-term-cyan text-[0.5rem] sm:text-sm leading-tight">{#each asciiArt as line}{line}
 {/each}</pre>
+		<pre class="text-term-text text-[1rem] sm:text-[1.75rem] leading-tight shrink-0">{String.raw`(\  /)`}{'\n'}{String.raw`( •.• )`}{'\n'}{String.raw`c(")("`})</pre>
+	</div>
 	<p class="mt-2 sm:mt-3 text-base sm:text-xl text-term-mauve font-medium">
 		The SSH client your iPhone deserves.
 	</p>
 </section>
+
