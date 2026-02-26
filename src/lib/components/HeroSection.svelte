@@ -25,11 +25,11 @@
 </script>
 
 <section in:fade={{ duration: 300 }}>
-	<div class="flex items-end gap-3 sm:gap-5">
-		<pre class="text-term-cyan text-[0.5rem] sm:text-sm leading-tight">{#each asciiArt as line}{line}
+	<h1 aria-label="UBICODE — The SSH client your iPhone deserves" class="flex items-end gap-3 sm:gap-5">
+		<pre aria-hidden="true" class="text-term-cyan text-[0.5rem] sm:text-sm leading-tight">{#each asciiArt as line}{line}
 {/each}</pre>
-		<pre class="text-term-text text-[1rem] sm:text-[1.75rem] leading-tight shrink-0">{String.raw`(\  /)`}{'\n'}{String.raw`( •.• )`}{'\n'}{String.raw`c(")("`})</pre>
-	</div>
+		<pre aria-hidden="true" class="text-term-text text-[1rem] sm:text-[1.75rem] leading-tight shrink-0">{String.raw`(\  /)`}{'\n'}{String.raw`( •.• )`}{'\n'}{String.raw`c(")("`})</pre>
+	</h1>
 	<p class="mt-2 sm:mt-3 text-base sm:text-xl text-term-mauve font-medium">
 		The SSH client your iPhone deserves.
 	</p>
