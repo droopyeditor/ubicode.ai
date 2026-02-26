@@ -106,7 +106,7 @@
 		<div in:fade={{ duration: 200 }} class="mt-2 sm:mt-3">
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
 				{#each features as feature (feature.name)}
-					<div class="box-card relative border border-term-border p-3 sm:p-4">
+					<div class="box-card relative border border-term-border p-3 sm:p-4 flex flex-col">
 						<span class="corner tl text-term-border">┌</span>
 						<span class="corner tr text-term-border">┐</span>
 						<span class="corner bl text-term-border">└</span>
@@ -116,7 +116,7 @@
 							<span class="{feature.color} font-medium">{feature.name}</span>
 						</p>
 						<p class="text-term-subtext">{feature.desc}</p>
-						<div class="mt-2 flex gap-2 justify-center">
+						<div class="mt-auto pt-2 flex gap-2 justify-center">
 							{#each feature.screenshots as src, i (i)}
 								<div class="rounded border border-term-border bg-term-bg overflow-hidden w-28 sm:w-32 shrink-0">
 									<img {src} alt="{feature.name}" class="w-full h-auto" loading="lazy" />
