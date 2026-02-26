@@ -1,6 +1,5 @@
 <script lang="ts">
 	import BlinkingCursor from './BlinkingCursor.svelte';
-	import TerminalWindow from './TerminalWindow.svelte';
 	import { typeText, delay } from '$lib/utils/typing.svelte.js';
 
 	let { onComplete, skipped = false }: { onComplete?: () => void; skipped?: boolean } = $props();
@@ -47,28 +46,22 @@
 	});
 </script>
 
-<div class="px-2 py-2 sm:px-4 sm:py-3 h-dvh">
-	<div class="max-w-4xl mx-auto h-full">
-		<TerminalWindow title="ubicode — ssh session">
-			<div class="flex flex-col justify-center h-full">
-				<div>
-					<p>
-						<span class="text-term-green">user@local</span><span class="text-term-subtext">:</span><span class="text-term-blue">~</span><span class="text-term-subtext">$</span>
-						 {commandText}{#if phase < 1}<BlinkingCursor />{/if}
-					</p>
+<div class="h-dvh flex items-center justify-center px-4 leading-relaxed" style="font-size: clamp(0.875rem, calc((100vw - 3rem) / 21), 2.5rem);">
+	<div>
+		<p>
+			<span class="text-term-green">user@local</span><span class="text-term-subtext">:</span><span class="text-term-blue">~</span><span class="text-term-subtext">$</span>
+			 {commandText}{#if phase < 1}<BlinkingCursor />{/if}
+		</p>
 
-					{#if phase >= 1}
-						{#each connectionLines as line}
-							<p class="text-term-subtext">{line}</p>
-						{/each}
-					{/if}
+		{#if phase >= 1}
+			{#each connectionLines as line}
+				<p class="text-term-subtext">{line}</p>
+			{/each}
+		{/if}
 
-					{#if phase >= 2}
-						<p class="mt-4 text-term-subtext">Welcome to <span class="text-term-cyan">ubicode.ai</span></p>
-						<p class="text-term-subtext"><BlinkingCursor /></p>
-					{/if}
-				</div>
-			</div>
-		</TerminalWindow>
+		{#if phase >= 2}
+			<p class="mt-4 text-term-subtext">Welcome to <span class="text-term-cyan">ubicode.ai</span></p>
+			<p class="text-term-subtext"><BlinkingCursor /></p>
+		{/if}
 	</div>
 </div>

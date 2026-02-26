@@ -11,12 +11,14 @@
 	const command = 'ubicode --list-features';
 
 	const features = [
-		{ name: 'Multi-Session Tabs', desc: 'Run multiple SSH sessions side by side' },
+		{ name: 'Terminal Emulator', desc: 'Full-featured xterm-compatible terminal' },
+		{ name: 'Sixel Graphics', desc: 'Render inline images directly in the terminal' },
 		{ name: 'SFTP Browser', desc: 'Browse and transfer files with a visual file manager' },
-		{ name: 'Port Forwarding', desc: 'Local and remote port forwarding made simple' },
-		{ name: 'SSH Key Management', desc: 'Generate, import, and manage your keys securely' },
+		{ name: 'Built-in Text Editor', desc: 'Edit remote files without leaving the app' },
+		{ name: 'SSH Tunneling', desc: 'Local and remote port forwarding made simple' },
 		{ name: 'Command Snippets', desc: 'Save and reuse your most common commands' },
-		{ name: 'Mosh Support', desc: 'Stay connected on unreliable networks' }
+		{ name: 'Customizable Key Panel', desc: 'Tailor your keyboard shortcuts for efficiency' },
+		{ name: 'SSH Key Management', desc: 'Generate, import, and manage your keys securely' }
 	];
 
 	const colors = [
@@ -25,7 +27,9 @@
 		'text-term-yellow',
 		'text-term-peach',
 		'text-term-mauve',
-		'text-term-blue'
+		'text-term-blue',
+		'text-term-red',
+		'text-term-cyan'
 	];
 
 	$effect(() => {
@@ -72,7 +76,7 @@
 				{/each}
 			</div>
 			<p class="mt-3 text-term-subtext">
-				<span class="text-term-green">✓</span> 6 features loaded.
+				<span class="text-term-green">✓</span> 8 features loaded.
 			</p>
 		</div>
 	{/if}

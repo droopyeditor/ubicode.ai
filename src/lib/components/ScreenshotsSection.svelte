@@ -3,12 +3,16 @@
 	import BlinkingCursor from './BlinkingCursor.svelte';
 	import { typeText, delay } from '$lib/utils/typing.svelte.js';
 
-	import screenshot1 from '$lib/assets/img/Simulator Screenshot - iPhone 17 Pro - 2026-02-25 at 16.49.36.png';
-	import screenshot2 from '$lib/assets/img/Simulator Screenshot - iPhone 17 Pro - 2026-02-25 at 17.04.09.png';
-	import screenshot3 from '$lib/assets/img/Simulator Screenshot - iPhone 17 Pro - 2026-02-25 at 17.04.14.png';
-	import screenshot4 from '$lib/assets/img/Simulator Screenshot - iPhone 17 Pro - 2026-02-25 at 17.04.21.png';
-	import screenshot5 from '$lib/assets/img/Simulator Screenshot - iPhone 17 Pro - 2026-02-25 at 17.05.04.png';
-	import screenshot6 from '$lib/assets/img/Simulator Screenshot - iPhone 17 Pro - 2026-02-25 at 17.05.19.png';
+	import connectScreen from '$lib/assets/img/connect_screen.png';
+	import terminal from '$lib/assets/img/terminal.png';
+	import sixelSupport from '$lib/assets/img/sixel_support.png';
+	import sftpSupport from '$lib/assets/img/sftp_support.png';
+	import textEditor from '$lib/assets/img/text_editor.png';
+	import sshTunneling from '$lib/assets/img/ssh_tunneling.png';
+	import commandSnippet from '$lib/assets/img/command_snippet.png';
+	import customizableKeyPanel from '$lib/assets/img/customizable_key_panel.png';
+	import sshKeyGen from '$lib/assets/img/ssh_key_gen.png';
+	import sshKeyImport from '$lib/assets/img/ssh_key_import.png';
 
 	let { onComplete, skipped = false }: { onComplete?: () => void; skipped?: boolean } = $props();
 
@@ -18,12 +22,16 @@
 	const command = 'ubicode --screenshots';
 
 	const screenshots = [
-		{ src: screenshot1, alt: 'ubicode terminal session' },
-		{ src: screenshot2, alt: 'ubicode session management' },
-		{ src: screenshot3, alt: 'ubicode SFTP browser' },
-		{ src: screenshot4, alt: 'ubicode settings' },
-		{ src: screenshot5, alt: 'ubicode key management' },
-		{ src: screenshot6, alt: 'ubicode port forwarding' }
+		{ src: connectScreen, alt: 'Connection screen' },
+		{ src: terminal, alt: 'Terminal session' },
+		{ src: sixelSupport, alt: 'Sixel graphics support' },
+		{ src: sftpSupport, alt: 'SFTP file browser' },
+		{ src: textEditor, alt: 'Built-in text editor' },
+		{ src: sshTunneling, alt: 'SSH port forwarding' },
+		{ src: commandSnippet, alt: 'Command snippets' },
+		{ src: customizableKeyPanel, alt: 'Customizable key panel' },
+		{ src: sshKeyGen, alt: 'SSH key generation' },
+		{ src: sshKeyImport, alt: 'SSH key import' }
 	];
 
 	$effect(() => {
@@ -57,7 +65,7 @@
 	</p>
 
 	{#if commandDone}
-		<div in:fade={{ duration: 200 }} class="mt-2 sm:mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-6">
+		<div in:fade={{ duration: 200 }} class="mt-2 sm:mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-4">
 			{#each screenshots as screenshot (screenshot.alt)}
 				<div class="rounded-lg border border-term-border bg-term-bg overflow-hidden">
 					<img

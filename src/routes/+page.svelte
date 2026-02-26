@@ -3,8 +3,9 @@
 	import SplashScreen from '$lib/components/SplashScreen.svelte';
 	import TerminalWindow from '$lib/components/TerminalWindow.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
-	import FeaturesSection from '$lib/components/FeaturesSection.svelte';
-	import ScreenshotsSection from '$lib/components/ScreenshotsSection.svelte';
+	import OverviewSection from '$lib/components/OverviewSection.svelte';
+	import GettingStartedSection from '$lib/components/GettingStartedSection.svelte';
+	import FeaturesShowcase from '$lib/components/FeaturesShowcase.svelte';
 	import CtaSection from '$lib/components/CtaSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
@@ -16,7 +17,7 @@
 		if (skipped) return;
 		skipped = true;
 		if (!splashDone) splashDone = true;
-		step = 4;
+		step = 5;
 	}
 
 	$effect(() => {
@@ -46,18 +47,22 @@
 					<HeroSection {skipped} onComplete={() => step = 1} />
 
 					{#if step >= 1}
-						<FeaturesSection {skipped} onComplete={() => step = 2} />
+						<OverviewSection {skipped} onComplete={() => step = 2} />
 					{/if}
 
 					{#if step >= 2}
-						<ScreenshotsSection {skipped} onComplete={() => step = 3} />
+						<GettingStartedSection {skipped} onComplete={() => step = 3} />
 					{/if}
 
 					{#if step >= 3}
-						<CtaSection {skipped} onComplete={() => step = 4} />
+						<FeaturesShowcase {skipped} onComplete={() => step = 4} />
 					{/if}
 
 					{#if step >= 4}
+						<CtaSection {skipped} onComplete={() => step = 5} />
+					{/if}
+
+					{#if step >= 5}
 						<Footer />
 					{/if}
 				</div>
