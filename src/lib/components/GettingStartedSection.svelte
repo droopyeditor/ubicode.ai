@@ -11,7 +11,7 @@
 	const command = 'ubicode --getting-started';
 
 	const steps = [
-		{ num: '1', text: 'Download ubicode from the App Store', color: 'text-term-cyan' },
+		{ num: '1', text: 'Join the beta on TestFlight', color: 'text-term-cyan' },
 		{ num: '2', text: 'Add a server — host, user, key or password', color: 'text-term-green' },
 		{ num: '3', text: 'Tap to connect — full terminal, ready to go', color: 'text-term-yellow' },
 		{ num: '4', text: 'Browse files, open in the editor, save back — all over SSH', color: 'text-term-peach' }
