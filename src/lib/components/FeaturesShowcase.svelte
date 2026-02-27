@@ -118,7 +118,7 @@
 						<p class="text-term-subtext">{feature.desc}</p>
 						<div class="mt-auto pt-2 flex gap-2 justify-center">
 							{#each feature.screenshots as src, i (i)}
-								<div class="rounded border border-term-border bg-term-bg overflow-hidden w-28 sm:w-32 shrink-0">
+								<div class="rounded border border-term-border bg-term-bg overflow-hidden w-1/2 sm:w-32 sm:shrink-0">
 									<img {src} alt="{feature.name}" class="w-full h-auto" loading="lazy" />
 								</div>
 							{/each}
