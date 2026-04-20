@@ -63,7 +63,7 @@
 
 					<section>
 						<h2 class="text-term-green font-bold">8. Contact Us</h2>
-						<p class="mt-1 text-term-subtext">If you have questions about this Privacy Policy, please contact us at <a href="mailto:privacy@ubicode.ai" class="text-term-blue hover:underline">privacy@ubicode.ai</a>.</p>
+						<p class="mt-1 text-term-subtext">If you have questions about this Privacy Policy, please contact us at <a href="mailto:support@ubicode.ai" class="text-term-blue hover:underline">support@ubicode.ai</a>.</p>
 					</section>
 				</div>
 			</div>
