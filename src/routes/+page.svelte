@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import SplashScreen from '$lib/components/SplashScreen.svelte';
 	import TerminalWindow from '$lib/components/TerminalWindow.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import OverviewSection from '$lib/components/OverviewSection.svelte';
@@ -8,65 +6,19 @@
 	import FeaturesShowcase from '$lib/components/FeaturesShowcase.svelte';
 	import CtaSection from '$lib/components/CtaSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-
-	let splashDone = $state(false);
-	let step = $state(0);
-	let skipped = $state(false);
-
-	function skipAll() {
-		if (skipped) return;
-		skipped = true;
-		if (!splashDone) splashDone = true;
-		step = 5;
-	}
-
-	$effect(() => {
-		if (skipped) return;
-
-		const handler = () => skipAll();
-
-		window.addEventListener('wheel', handler, { once: true, passive: true });
-		window.addEventListener('touchmove', handler, { once: true, passive: true });
-
-		return () => {
-			window.removeEventListener('wheel', handler);
-			window.removeEventListener('touchmove', handler);
-		};
-	});
 </script>
 
-{#if !splashDone}
-	<div out:fade={{ duration: 300 }}>
-		<SplashScreen {skipped} onComplete={() => splashDone = true} />
+<div class="px-2 py-2 sm:px-4 sm:py-3 h-dvh">
+	<div class="max-w-4xl mx-auto h-full">
+		<TerminalWindow title="ubicode — ssh session">
+			<div class="space-y-4 sm:space-y-6">
+				<HeroSection />
+				<OverviewSection />
+				<GettingStartedSection />
+				<FeaturesShowcase />
+				<CtaSection />
+				<Footer />
+			</div>
+		</TerminalWindow>
 	</div>
-{:else}
-	<div class="px-2 py-2 sm:px-4 sm:py-3 h-dvh" in:fade={{ duration: 300, delay: 300 }}>
-		<div class="max-w-4xl mx-auto h-full">
-			<TerminalWindow title="ubicode — ssh session">
-				<div class="space-y-4 sm:space-y-6">
-					<HeroSection {skipped} onComplete={() => step = 1} />
-
-					{#if step >= 1}
-						<OverviewSection {skipped} onComplete={() => step = 2} />
-					{/if}
-
-					{#if step >= 2}
-						<GettingStartedSection {skipped} onComplete={() => step = 3} />
-					{/if}
-
-					{#if step >= 3}
-						<FeaturesShowcase {skipped} onComplete={() => step = 4} />
-					{/if}
-
-					{#if step >= 4}
-						<CtaSection {skipped} onComplete={() => step = 5} />
-					{/if}
-
-					{#if step >= 5}
-						<Footer />
-					{/if}
-				</div>
-			</TerminalWindow>
-		</div>
-	</div>
-{/if}
+</div>
