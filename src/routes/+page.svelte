@@ -2,7 +2,6 @@
 	import TerminalWindow from '$lib/components/TerminalWindow.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import OverviewSection from '$lib/components/OverviewSection.svelte';
-	import GettingStartedSection from '$lib/components/GettingStartedSection.svelte';
 	import FeaturesShowcase from '$lib/components/FeaturesShowcase.svelte';
 	import CtaSection from '$lib/components/CtaSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -14,7 +13,6 @@
 			<div class="space-y-4 sm:space-y-6">
 				<HeroSection />
 				<OverviewSection />
-				<GettingStartedSection />
 				<FeaturesShowcase />
 				<CtaSection />
 				<Footer />

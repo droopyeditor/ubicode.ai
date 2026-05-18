@@ -7,6 +7,9 @@ test('home page has expected content', async ({ page }) => {
 	await expect(page.getByText('Editor and Terminal over SSH on iPhone')).toBeVisible({ timeout: 500 });
 	await expect(page.getByText('Edit code, review Markdown, and command AI agents while away from your desk.')).toBeVisible({ timeout: 500 });
 	await expect(page.getByText('## What is ubicode?')).toHaveCount(0);
+	await expect(page.getByText('ubicode --getting-started')).toHaveCount(0);
+	await expect(page.getByText('Add a server — host, user, key or password')).toHaveCount(0);
+	await expect(page.getByText("That's it. Everything runs over your SSH connection — zero extra setup.")).toHaveCount(0);
 	await expect(page.getByText('Ready to take your servers on the go?')).toBeVisible({ timeout: 500 });
 	await expect(page.locator('html')).not.toHaveCSS('scroll-behavior', 'smooth');
 });
