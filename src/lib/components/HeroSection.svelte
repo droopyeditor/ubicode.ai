@@ -9,16 +9,30 @@
 	];
 </script>
 
-<section>
-	<h1 aria-label="UBICODE — Editor and Terminal over SSH on iPhone" class="flex items-end gap-3 sm:gap-5">
+<section class="relative flex flex-col gap-y-3 sm:gap-y-4 lg:min-h-[42rem] lg:justify-center lg:pr-[26rem]">
+	<h1
+		aria-label="UBICODE — Editor and Terminal over SSH on iPhone"
+		class="flex items-end gap-3 sm:gap-5"
+	>
 		<pre aria-hidden="true" class="text-term-cyan text-[0.5rem] sm:text-sm leading-tight">{#each asciiArt as line}{line}
 {/each}</pre>
 		<pre aria-hidden="true" class="text-term-text text-[1rem] sm:text-[1.75rem] leading-tight shrink-0">{String.raw`(\  /)`}{'\n'}{String.raw`( •.• )`}{'\n'}{String.raw`c(")("`})</pre>
 	</h1>
-	<p class="mt-2 sm:mt-3 text-base sm:text-xl text-term-mauve font-medium">
+	<h2 class="text-base sm:text-xl text-term-mauve font-medium">
 		Editor and Terminal over SSH on iPhone
-	</p>
-	<div class="mt-3 sm:mt-4">
+	</h2>
+	<div class="lg:absolute lg:right-0 lg:top-1/2 lg:w-96 lg:-translate-y-1/2">
+		<video
+			aria-label="ubicode portrait voiceover demo"
+			class="mx-auto aspect-[9/16] w-full rounded-lg border border-term-border bg-term-bg shadow-lg shadow-black/30 lg:mx-0"
+			controls
+			playsinline
+			preload="metadata"
+		>
+			<source src="/videos/ubicode_cm_portrait_en_voiceover.mp4" type="video/mp4" />
+		</video>
+	</div>
+	<div>
 		<a
 			href="https://testflight.apple.com/join/4tsnW6vw"
 			target="_blank"

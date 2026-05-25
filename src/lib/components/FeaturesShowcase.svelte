@@ -1,14 +1,11 @@
 <script lang="ts">
 	import connectScreen from '$lib/assets/img/connect_screen.jpg';
-	import terminal from '$lib/assets/img/terminal.jpg';
 	import sixelSupport from '$lib/assets/img/sixel_support.jpg';
 	import sftpSupport from '$lib/assets/img/sftp_support.jpg';
 	import textEditor from '$lib/assets/img/text_editor.jpg';
 	import sshTunneling from '$lib/assets/img/ssh_tunneling.jpg';
 	import commandSnippet from '$lib/assets/img/command_snippet.jpg';
 	import customizableKeyPanel from '$lib/assets/img/customizable_key_panel.jpg';
-	import sshKeyGen from '$lib/assets/img/ssh_key_gen.jpg';
-	import sshKeyImport from '$lib/assets/img/ssh_key_import.jpg';
 
 	const command = 'ubicode --list-features --verbose';
 
@@ -23,7 +20,7 @@
 			name: 'Terminal Emulator',
 			desc: 'Full-featured xterm-compatible terminal with true color, Unicode, and Sixel graphics support.',
 			color: 'text-term-cyan',
-			screenshots: [terminal, sixelSupport]
+			screenshots: [sixelSupport]
 		},
 		{
 			name: 'SFTP Browser',
@@ -54,14 +51,11 @@
 			desc: 'Tailor your keyboard shortcuts for efficiency.',
 			color: 'text-term-cyan',
 			screenshots: [customizableKeyPanel]
-		},
-		{
-			name: 'SSH Key Management',
-			desc: 'Generate, import, and manage your keys securely.',
-			color: 'text-term-green',
-			screenshots: [sshKeyGen, sshKeyImport]
 		}
 	];
+
+	const screenshotFrameBase =
+		'rounded-2xl border border-term-border bg-term-bg overflow-hidden shadow-lg shadow-black/20';
 </script>
 
 <section id="features">
@@ -83,9 +77,15 @@
 						<span class="{feature.color} font-medium">{feature.name}</span>
 					</p>
 					<p class="text-term-subtext">{feature.desc}</p>
-					<div class="mt-auto pt-2 flex gap-2 justify-center">
+					<div class="mt-auto pt-3 flex gap-3 justify-center">
 						{#each feature.screenshots as src, i (i)}
-							<div class="rounded border border-term-border bg-term-bg overflow-hidden w-1/2 sm:w-32 sm:shrink-0">
+							<div
+								class={`${screenshotFrameBase} ${
+									feature.screenshots.length === 1
+										? 'w-full'
+										: 'w-[calc(50%-0.375rem)] sm:w-44 sm:max-w-[calc(50%-0.375rem)]'
+								}`}
+							>
 								<img {src} alt="{feature.name}" class="w-full h-auto" loading="lazy" />
 							</div>
 						{/each}
