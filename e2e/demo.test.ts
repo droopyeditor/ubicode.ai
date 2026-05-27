@@ -28,7 +28,7 @@ test('home page uses a wider desktop layout', async ({ page }) => {
 	const videoBox = await hero.getByLabel('ubicode portrait voiceover demo').boundingBox();
 
 	expect(videoBox?.x).toBeGreaterThan((headingBox?.x ?? 0) + (headingBox?.width ?? 0));
-	expect(videoBox?.width).toBeGreaterThan(360);
+	expect(videoBox?.width).toBeGreaterThan(260);
 });
 
 test('hero shows the portrait voiceover video below the subtitle on mobile', async ({ page }) => {
@@ -41,9 +41,36 @@ test('hero shows the portrait voiceover video below the subtitle on mobile', asy
 		name: 'Editor and Terminal over SSH on iPhone'
 	});
 	const video = hero.getByLabel('ubicode portrait voiceover demo');
+	const phoneFrame = hero.getByLabel('iPhone frame for ubicode demo');
 
 	await expect(subtitle).toBeVisible({ timeout: 500 });
+	await expect(phoneFrame).toBeVisible({ timeout: 500 });
+	await expect(phoneFrame.locator('video')).toHaveCount(1);
 	await expect(video).toBeVisible({ timeout: 500 });
+	await expect(video).toHaveJSProperty('autoplay', true);
+	await expect(video).toHaveJSProperty('muted', true);
+	const phoneFrameBox = await phoneFrame.boundingBox();
+	const framedVideoBox = await video.boundingBox();
+	const viewport = page.viewportSize();
+
+	expect(Math.abs((framedVideoBox?.x ?? 0) - (phoneFrameBox?.x ?? 0))).toBeLessThan(3);
+	expect(Math.abs((framedVideoBox?.y ?? 0) - (phoneFrameBox?.y ?? 0))).toBeLessThan(3);
+	expect(Math.abs((phoneFrameBox?.width ?? 0) - (framedVideoBox?.width ?? 0))).toBeLessThan(6);
+	expect(Math.abs((framedVideoBox?.height ?? 0) - (phoneFrameBox?.height ?? 0))).toBeLessThan(6);
+	await expect
+		.poll(() => video.evaluate((node) => (node as HTMLVideoElement).videoWidth))
+		.toBeGreaterThan(0);
+	const { intrinsicAspect, renderedAspect } = await video.evaluate((node) => {
+		const videoNode = node as HTMLVideoElement;
+		const rect = videoNode.getBoundingClientRect();
+
+		return {
+			intrinsicAspect: videoNode.videoWidth / videoNode.videoHeight,
+			renderedAspect: rect.width / rect.height
+		};
+	});
+
+	expect(Math.abs(renderedAspect - intrinsicAspect)).toBeLessThan(0.01);
 	await expect(video.locator('source')).toHaveAttribute(
 		'src',
 		'/videos/ubicode_cm_portrait_en_voiceover.mp4'
@@ -51,9 +78,17 @@ test('hero shows the portrait voiceover video below the subtitle on mobile', asy
 	await expect(video.locator('source')).toHaveAttribute('type', 'video/mp4');
 
 	const heroBox = await hero.boundingBox();
-	const videoBox = await video.boundingBox();
+	const subtitleBox = await subtitle.boundingBox();
+	const ctaBox = await hero.getByRole('link', { name: 'Join the Beta on TestFlight' }).boundingBox();
 
-	expect(videoBox?.width).toBeGreaterThan((heroBox?.width ?? 0) * 0.85);
+	expect(framedVideoBox?.width).toBeGreaterThan((heroBox?.width ?? 0) * 0.7);
+	expect((phoneFrameBox?.y ?? 0) + (phoneFrameBox?.height ?? 0)).toBeLessThan((viewport?.height ?? 0) - 4);
+	expect((phoneFrameBox?.y ?? 0) - ((subtitleBox?.y ?? 0) + (subtitleBox?.height ?? 0))).toBeGreaterThanOrEqual(28);
+	expect((ctaBox?.y ?? 0) - ((phoneFrameBox?.y ?? 0) + (phoneFrameBox?.height ?? 0))).toBeGreaterThanOrEqual(28);
+	const heroCenterX = (heroBox?.x ?? 0) + (heroBox?.width ?? 0) / 2;
+	const phoneFrameCenterX = (phoneFrameBox?.x ?? 0) + (phoneFrameBox?.width ?? 0) / 2;
+
+	expect(Math.abs(phoneFrameCenterX - heroCenterX)).toBeLessThan(3);
 
 	const subtitlePrecedesVideo = await hero.evaluate((node) => {
 		const subtitleNode = node.querySelector('h2');

@@ -9,7 +9,7 @@
 	];
 </script>
 
-<section class="relative flex flex-col gap-y-3 sm:gap-y-4 lg:min-h-[42rem] lg:justify-center lg:pr-[26rem]">
+<section class="relative flex flex-col gap-y-3 sm:gap-y-4 lg:min-h-[42rem] lg:justify-center lg:pr-[21rem]">
 	<h1
 		aria-label="UBICODE — Editor and Terminal over SSH on iPhone"
 		class="flex items-end gap-3 sm:gap-5"
@@ -21,16 +21,38 @@
 	<h2 class="text-base sm:text-xl text-term-mauve font-medium">
 		Editor and Terminal over SSH on iPhone
 	</h2>
-	<div class="lg:absolute lg:right-0 lg:top-1/2 lg:w-96 lg:-translate-y-1/2">
-		<video
-			aria-label="ubicode portrait voiceover demo"
-			class="mx-auto aspect-[9/16] w-full rounded-lg border border-term-border bg-term-bg shadow-lg shadow-black/30 lg:mx-0"
-			controls
-			playsinline
-			preload="metadata"
+	<div class="phone-demo-wrap mx-auto my-4 lg:absolute lg:right-0 lg:top-1/2 lg:mx-0 lg:my-0 lg:-translate-y-1/2">
+		<div
+			aria-label="iPhone frame for ubicode demo"
+			class="relative mx-auto w-full rounded-[2.75rem] border border-black bg-black shadow-2xl shadow-black/40 ring-[10px] ring-black/95 ring-offset-1 ring-offset-term-border/60 lg:mx-0"
 		>
-			<source src="/videos/ubicode_cm_portrait_en_voiceover.mp4" type="video/mp4" />
-		</video>
+			<span
+				aria-hidden="true"
+				class="absolute left-1/2 top-3 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-black shadow-md"
+			></span>
+			<span
+				aria-hidden="true"
+				class="absolute -left-1 top-28 h-16 w-1 rounded-l bg-term-border/70"
+			></span>
+			<span
+				aria-hidden="true"
+				class="absolute -right-1 top-36 h-24 w-1 rounded-r bg-term-border/70"
+			></span>
+			<div class="overflow-hidden rounded-[2.15rem] bg-term-bg">
+				<video
+					aria-label="ubicode portrait voiceover demo"
+					class="block h-auto w-full bg-term-bg"
+					autoplay
+					controls
+					loop
+					muted
+					playsinline
+					preload="metadata"
+				>
+					<source src="/videos/ubicode_cm_portrait_en_voiceover.mp4" type="video/mp4" />
+				</video>
+			</div>
+		</div>
 	</div>
 	<div>
 		<a
@@ -46,3 +68,21 @@
 		</a>
 	</div>
 </section>
+
+<style>
+	.phone-demo-wrap {
+		width: min(100%, calc((100dvh - 14rem) * 180 / 391));
+	}
+
+	@media (min-width: 640px) {
+		.phone-demo-wrap {
+			width: min(100%, calc((100dvh - 17rem) * 180 / 391));
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.phone-demo-wrap {
+			width: min(19rem, calc((100dvh - 6rem) * 180 / 391));
+		}
+	}
+</style>
