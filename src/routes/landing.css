@@ -306,7 +306,7 @@ pre {
   flex: 0 1 auto;
   overflow: hidden;
   color: var(--purple);
-  font: 700 clamp(11.5px, 1.12vw, 13.3px) / 1.25 var(--mono);
+  font: 700 clamp(12.6px, 1.2vw, 14.5px) / 1.22 var(--mono);
   text-shadow: 0 0 22px rgba(167, 131, 255, 0.29);
 }
 
@@ -319,7 +319,7 @@ pre {
 }
 
 .hero-tagline {
-  margin-bottom: 32px;
+  margin-bottom: 0;
   color: var(--white);
   font-family: var(--display);
   font-size: clamp(32px, 3.15vw, 40px);
@@ -354,7 +354,7 @@ pre {
 }
 
 .conversion-block {
-  margin-top: 35px;
+  margin-top: 22px;
 }
 
 .hero-actions {
@@ -842,7 +842,8 @@ pre {
   }
 
   .ascii-logo {
-    font-size: clamp(4.5px, 1.25vw, 5.8px);
+    font-size: clamp(5.6px, 1.8vw, 7.6px);
+    line-height: 1.18;
   }
 
   .ascii-mascot {
@@ -855,7 +856,7 @@ pre {
   }
 
   .conversion-block {
-    margin-top: 25px;
+    margin-top: 18px;
   }
 
   .readme-log {
