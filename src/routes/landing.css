@@ -1,9 +1,9 @@
 :root {
-  --bg: #050811;
-  --panel: rgba(7, 12, 23, 0.92);
-  --panel-alt: #0a1020;
-  --line: rgba(119, 105, 168, 0.27);
-  --line-soft: rgba(101, 99, 137, 0.17);
+  --bg: #010204;
+  --panel: rgba(5, 6, 10, 0.94);
+  --panel-alt: #07080d;
+  --line: rgba(124, 117, 157, 0.23);
+  --line-soft: rgba(117, 117, 136, 0.14);
   --text: #e8ecf7;
   --white: #fbfcff;
   --muted: #8792aa;
@@ -29,9 +29,9 @@ body {
   color: var(--text);
   font-family: var(--mono);
   background:
-    radial-gradient(circle at 74% 13%, rgba(98, 54, 208, 0.2), transparent 33%),
-    radial-gradient(circle at 18% 76%, rgba(15, 124, 133, 0.12), transparent 27%),
-    linear-gradient(180deg, #070a14, var(--bg) 360px);
+    radial-gradient(circle at 73% 12%, rgba(78, 50, 178, 0.12), transparent 34%),
+    radial-gradient(circle at 16% 74%, rgba(16, 126, 118, 0.07), transparent 28%),
+    linear-gradient(180deg, #030407, var(--bg) 390px);
 }
 
 body::after {
@@ -40,8 +40,8 @@ body::after {
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(rgba(100, 90, 139, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 90, 139, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(104, 104, 122, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(104, 104, 122, 0.032) 1px, transparent 1px);
   background-size: 52px 52px;
   mask-image: radial-gradient(ellipse at center, black 14%, transparent 75%);
 }
@@ -80,7 +80,7 @@ pre {
   height: 440px;
   top: 130px;
   right: 9%;
-  background: rgba(107, 63, 216, 0.17);
+  background: rgba(107, 63, 216, 0.1);
 }
 
 .glow-green {
@@ -88,7 +88,7 @@ pre {
   height: 330px;
   left: 7%;
   bottom: 10%;
-  background: rgba(22, 154, 119, 0.09);
+  background: rgba(22, 154, 119, 0.055);
 }
 
 .container {
@@ -101,7 +101,7 @@ pre {
   top: 0;
   z-index: 30;
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(5, 8, 17, 0.76);
+  background: rgba(1, 2, 4, 0.8);
   backdrop-filter: blur(18px);
 }
 
@@ -454,7 +454,6 @@ pre {
   gap: 19px;
   min-height: 0;
   padding: 19px 17px 17px;
-  border: 1px solid rgba(101, 99, 137, 0.22);
   border-radius: 10px;
   background: rgba(5, 10, 20, 0.52);
 }
@@ -747,10 +746,6 @@ pre {
   transform: translateY(0);
 }
 
-.feature-row {
-  transition: border-color 180ms ease;
-}
-
 @media (max-width: 900px) {
   .nav-command {
     display: none;
@@ -795,10 +790,6 @@ pre {
 @media (max-width: 600px) {
   .container {
     width: min(100% - 30px, 440px);
-  }
-
-  .site-header {
-    position: static;
   }
 
   .console-nav {
